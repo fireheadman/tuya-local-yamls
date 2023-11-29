@@ -1,0 +1,93 @@
+name: New One Dimmer Smartplug
+products:
+  - id: zbisbtukzuiifmp6
+    model: WF39M
+    name: New One Light Dimmer
+primary_entity:
+  entity: light
+  name: Dimmer
+  dps:
+    - id: 1
+      type: boolean
+      name: switch
+    - id: 2
+      name: brightness
+      type: integer
+      range:
+        min: 10
+        max: 1000
+      mapping:
+        - scale: 3.92
+secondary_entities:
+  - entity: number
+    name: Min brightness
+    category: config
+    icon: "mdi:lightbulb-on-50"
+    dps:
+      - id: 3
+        type: integer
+        name: value
+        range:
+          min: 10
+          max: 1000
+        unit: "%"
+        mapping:
+          - scale: 10
+  - entity: number
+    name: Max brightness
+    category: config
+    icon: "mdi:lightbulb-on"
+    dps:
+      - id: 5
+        type: integer
+        name: value
+        range:
+          min: 10
+          max: 1000
+        unit: "%"
+        mapping:
+          - scale: 10
+  - entity: select
+    name: Light Type
+    category: config
+    dps:
+      - id: 4
+        type: string
+        name: option
+        mapping:
+          - dps_val: led
+            value: LED
+          - dps_val: incandescent
+            value: Incandescent
+          - dps_val: halogen
+            value: Halogen
+  - entity: select
+    name: Restore Power State
+    icon: "mdi:toggle-switch"
+    category: config
+    dps:
+      - id: 14
+        name: option
+        type: string
+        mapping:
+          - dps_val: memory
+            value: Last State
+          - dps_val: "on"
+            value: "On"
+          - dps_val: "off"
+            value: "Off"
+  - entity: select
+    name: Indicator
+    icon: "mdi:led-on"
+    category: config
+    dps:
+      - id: 21
+        type: string
+        name: option
+        mapping:
+          - dps_val: none
+            value: "Off"
+          - dps_val: relay
+            value: On/Off Status
+          - dps_val: pos
+            value: Switch Position
