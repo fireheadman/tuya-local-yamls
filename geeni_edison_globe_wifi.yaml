@@ -1,0 +1,30 @@
+name: Geeni LUX Edison lightbulb
+products:
+  - id: hvfqgkigk9nj0p6p
+    model: GN-BW223-999
+  - id: 41xqxqiflb6lqaqv
+    model: GN-BW223-999
+  - id: gbi4ljmlyrxx23mz
+    model: GN-BW230-999
+primary_entity:
+  entity: light
+  dps:
+    - id: 1
+      type: boolean
+      name: switch
+    - id: 2
+      name: brightness
+      type: integer
+      range:
+        min: 25
+        max: 255
+    - id: 3
+      name: color_temp
+      type: integer
+      range:
+        min: 0
+        max: 255
+      mapping:
+        - target_range:
+            min: 2700
+            max: 6500
